@@ -1,0 +1,13 @@
+
+.main-content {
+  margin-left: 240px;
+  margin-top: 65px;
+  padding: 40px;
+  min-height: 100vh;
+  width: 80%;
+
+  /* ✅ SMOOTH PURPLE GRADIENT */
+  background: radial-gradient(circle at top left, #1e1b4b, #020617 70%);
+
+  color: #e2e8f0;
+}

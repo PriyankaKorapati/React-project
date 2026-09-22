@@ -1,0 +1,61 @@
+.s-topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 65px;
+  background: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 30px;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 1000;
+}
+
+/* TITLE */
+.s-topnav h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0ea5e9;
+}
+
+/* RIGHT SIDE */
+.s-topnav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* USER */
+.s-user-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f5f9;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.s-user-box span{
+  color: black;
+}
+
+/* LOGOUT */
+.logout-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}

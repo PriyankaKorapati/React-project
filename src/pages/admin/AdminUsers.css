@@ -1,0 +1,138 @@
+/* ===== CONTAINER ===== */
+.users-container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #e2e8f0;
+}
+
+/* ===== TITLE ===== */
+.page-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #c4b5fd;
+}
+
+/* ===== SEARCH ===== */
+.search-box {
+  width: 320px;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.08); /* slightly brighter */
+  color: #ffffff;
+
+  border: 1px solid rgba(139, 92, 246, 0.4); /* purple border */
+  outline: none;
+
+  transition: 0.25s;
+}
+
+/* placeholder */
+.search-box::placeholder {
+  color: #a78bfa;
+}
+
+/* focus effect */
+.search-box:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ===== TABLE ===== */
+.users-table {
+  width: 90%;
+  max-width: 1000px;
+
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(10px);
+
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+
+  overflow: hidden;
+}
+
+/* ===== HEADER ===== */
+.table-header {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+
+  background: linear-gradient(135deg, #7c3aed, #4c1d95);
+  padding: 14px 20px;
+  font-weight: 600;
+}
+
+/* ===== ROW ===== */
+.table-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  align-items: center;
+  transition: 0.2s;
+}
+
+.table-row:hover {
+  background: rgba(139,92,246,0.08);
+}
+
+/* ===== ROLE BADGE ===== */
+
+.role {
+  padding: 3px 11px;      
+  border-radius: 20px;
+  font-size: 11px;         
+  font-weight: 500;
+  width: fit-content;
+  text-transform: capitalize;
+}
+
+/* ADMIN */
+.role.admin {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+/* STUDENT */
+.role.student {
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+/* ===== ACTIONS ===== */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* BUTTONS */
+.actions button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* CHANGE ROLE */
+.actions button:first-child {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+}
+
+/* DELETE */
+.delete-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}

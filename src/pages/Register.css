@@ -1,0 +1,75 @@
+/* FULL PAGE CENTER */
+.register-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(to right, #0f172a, #1e293b);
+}
+
+/* CARD */
+.register-card {
+  width: 350px;
+  padding: 30px;
+
+  background: white;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* TITLE */
+.register-card h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* INPUTS */
+.register-card input,
+.register-card select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* INPUT FOCUS */
+.register-card input:focus,
+.register-card select:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+/* BUTTON */
+.register-card button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+
+  background-color: #3b82f6;
+  color: white;
+  font-size: 15px;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.register-card button:hover {
+  background-color: #2563eb;
+}
+
+/* LOGIN TEXT */
+.register-card p {
+  text-align: center;
+  font-size: 14px;
+}
+
+.register-card span {
+  color: #3b82f6;
+  cursor: pointer;
+}
