@@ -11,7 +11,6 @@ export default function DashboardHome() {
     pending: 0
   });
 
-  // 📊 FETCH DATA
   const fetchStats = async () => {
     const { data: userData } = await supabase.auth.getUser();
     if (!userData?.user) return;
@@ -32,8 +31,6 @@ export default function DashboardHome() {
 
   useEffect(() => {
     fetchStats();
-
-    // 🔥 REALTIME UPDATE
     const channel = supabase
       .channel("complaints-live")
       .on(

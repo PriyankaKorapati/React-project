@@ -51,84 +51,56 @@ export default function Profile() {
     setPreview(URL.createObjectURL(file));
   };
 
-  // 🔥 Update Profile
-  // const handleUpdate = async () => {
-  //   const { data: userData } = await supabase.auth.getUser();
-  //   if (!userData?.user) return;
-
-  //   let imageUrl = profile.avatar_url;
-
-  //   if (image) {
-  //     const fileName = `${Date.now()}_${image.name}`;
-
-  //     await supabase.storage
-  //       .from("avatars")
-  //       .upload(fileName, image);
-
-  //     const { data } = supabase.storage
-  //       .from("avatars")
-  //       .getPublicUrl(fileName);
-
-  //     imageUrl = data.publicUrl;
-  //   }
-
-  //   const { error } = await supabase
-  //     .from("profiles")
-  //     .update({
-  //       department: form.department,
-  //       college: form.college,
-  //       year: form.year,
-  //       avatar_url: imageUrl
-  //     })
-  //     .eq("id", userData.user.id);
-
-  //   if (!error) {
-  //     setIsEditing(false);
-  //     fetchProfile();
-  //   }
-  // };
   const handleUpdate = async () => {
-  const { data: userData } = await supabase.auth.getUser();
-  if (!userData?.user) return;
+    const { data: userData } = await supabase.auth.getUser();
+    if (!userData?.user) return;
 
-  let imageUrl = profile.avatar_url;
+    let imageUrl = profile.avatar_url;
 
-  if (image) {
-    const fileName = `${Date.now()}_${image.name}`;
+    if (image) {
+      const fileExt = image.name.split(".").pop();
+      const fileName = `${userData.user.id}.${fileExt}`;
 
-    await supabase.storage
-      .from("avatars")
-      .upload(fileName, image);
+      const { error: uploadError } = await supabase.storage
+        .from("avatars").upload(fileName, image, {
+          upsert: true,
+        });
 
-    const { data } = supabase.storage
-      .from("avatars")
-      .getPublicUrl(fileName);
+      if (uploadError) {
+        console.log("Upload error:", uploadError);
+        Swal.fire("Error", "Image upload failed", "error");
+        return;
+      }
 
-    imageUrl = data.publicUrl;
-  }
+      const { data } = supabase.storage
+        .from("avatars")
+        .getPublicUrl(fileName);
 
-  const { error } = await supabase
-    .from("profiles")
-    .update({
-      department: form.department,
-      college: form.college,
-      year: form.year,
-      avatar_url: imageUrl
-    })
-    .eq("id", userData.user.id);
+      imageUrl = data.publicUrl;
+    }
 
-  if (!error) {
-    setIsEditing(false);
-    fetchProfile();
+    const { error } = await supabase
+      .from("profiles")
+      .update({
+        department: form.department,
+        college: form.college,
+        year: form.year,
+        avatar_url: imageUrl
+      })
+      .eq("id", userData.user.id);
 
-    Swal.fire({
-      icon: "success",
-      title: "Profile Updated 🎉",
-      text: "Your profile has been updated successfully!",
-      confirmButtonColor: "#22c55e",
-    });
-  }
-};
+    if (!error) {
+      setIsEditing(false);
+      fetchProfile();
+
+      Swal.fire({
+        icon: "success",
+        title: "Profile Updated 🎉",
+        text: "Your profile has been updated successfully!",
+        confirmButtonColor: "#22c55e",
+      });
+    }
+  };
 
   const handleDelete = async () => {
     const { data: userData } = await supabase.auth.getUser();
@@ -157,8 +129,8 @@ export default function Profile() {
 
         <div className="profile-card">
           <img
-            src={preview || profile.avatar_url || "/default.png"}
-            className="profile-img"
+            src={preview || profile.avatar_url || "https://via.placeholder.com/120?text=User"}
+            alt ="profile" className="profile-img"
           />
 
           {isEditing && (
@@ -205,7 +177,7 @@ export default function Profile() {
             onChange={(e) =>
               setForm({ ...form, year: e.target.value })
             }
-            placeholder="Year"/>
+            placeholder="Year" />
 
           {!isEditing ? (
             <div className="btn-row">

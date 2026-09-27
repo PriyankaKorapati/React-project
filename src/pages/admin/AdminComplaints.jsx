@@ -6,35 +6,35 @@ export default function AdminComplaints() {
   const [complaints, setComplaints] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchComplaints = async () => {
-    setLoading(true);
+ const fetchComplaints = async () => {
+  setLoading(true);
 
-    const { data, error } = await supabase
-      .from("complaints")
-      .select(`
-        id,
-        title,
-        description,
-        category,
-        status,
-        created_at,
-        user_id,
-        profiles!complaints_user_id_fkey (
-          name
-        )
-      `)
-      .order("created_at", { ascending: false });
+  const { data, error } = await supabase
+    .from("complaints")
+    .select(`
+      id,
+      title,
+      description,
+      category,
+      status,
+      created_at,
+      user_id,
+      image_url,
+      profiles:profiles!complaints_user_id_fkey (
+        name
+      )
+    `)
+    .order("created_at", { ascending: false });
 
-    if (error) {
-      console.error("ERROR:", error);
-    } else {
-      console.log("DATA:", data);
-      setComplaints(data || []);
-    }
+  if (error) {
+    console.error("ERROR:", error);
+  } else {
+    console.log("DATA:", data);
+    setComplaints(data || []);
+  }
 
-    setLoading(false);
-  };
-
+  setLoading(false);
+};
   useEffect(() => {
     fetchComplaints();
   }, []);
@@ -59,6 +59,7 @@ export default function AdminComplaints() {
     <div className="complaints-container">
       <h2 className="page-title">Manage Complaints</h2>
 
+      {/* STATS */}
       <div className="stats">
         <div className="stat-card">
           <h4>Total</h4>
@@ -84,9 +85,18 @@ export default function AdminComplaints() {
         {complaints.map((item) => (
           <div className="complaint-card" key={item.id}>
 
+            {/* LEFT SIDE */}
             <div className="card-left">
               <h4>{item.title}</h4>
               <p className="desc">{item.description}</p>
+
+              {item.image_url && (
+                <img
+                  src={item.image_url}
+                  alt="complaint"
+                  className="complaint-img"
+                />
+              )}
 
               <p style={{ fontSize: "13px", color: "#64748b" }}>
                 👤 {item.profiles?.name || "Unknown User"}

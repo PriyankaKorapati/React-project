@@ -222,7 +222,6 @@ export default function AdminHome() {
 
   const [notification, setNotification] = useState("");
 
-  // 🔥 FETCH DATA (ONLY AFTER APPLY)
   const fetchData = async () => {
 
     let query = supabase.from("complaints").select("*");
@@ -270,8 +269,6 @@ export default function AdminHome() {
       }))
     );
   };
-
-  // 🔥 APPLY BUTTON
   const handleApply = () => {
     setAppliedDepartment(
       selectedDepartment === "All Departments" ? "All" : selectedDepartment
@@ -282,13 +279,9 @@ export default function AdminHome() {
     else if (selectedDate === "Last 7 Days") setAppliedDate("7");
     else if (selectedDate === "Last 30 Days") setAppliedDate("30");
   };
-
-  // 🔄 FETCH AFTER APPLY
   useEffect(() => {
     fetchData();
   }, [appliedDepartment, appliedDate]);
-
-  // 🔴 REALTIME
   useEffect(() => {
     const channel = supabase
       .channel("live-dashboard")
@@ -307,8 +300,6 @@ export default function AdminHome() {
   }, []);
 
   const COLORS = ["#f59e0b", "#22c55e"];
-
-  // 📁 EXPORT
   const exportCSV = () => {
     const rows = [
       ["Category", "Count"],
@@ -329,11 +320,8 @@ export default function AdminHome() {
     <div className="dashboard-container">
 
       <h2 className="page-title">Admin Dashboard</h2>
-
-      {/* FILTERS */}
       <div className="filters">
 
-        {/* DEPARTMENT DROPDOWN */}
         <div className="dropdown">
           <button onClick={() => setShowDept(!showDept)} className="dropdown-btn">
             {selectedDepartment}
@@ -355,8 +343,6 @@ export default function AdminHome() {
             </div>
           )}
         </div>
-
-        {/* DATE DROPDOWN */}
         <div className="dropdown">
           <button onClick={() => setShowDate(!showDate)} className="dropdown-btn">
             {selectedDate}
@@ -382,11 +368,8 @@ export default function AdminHome() {
         <button onClick={handleApply}>Apply</button>
         <button onClick={exportCSV}>Export</button>
       </div>
-
-      {/* NOTIFICATION */}
       {notification && <div className="notification">{notification}</div>}
 
-      {/* CARDS */}
       <div className="cards">
         <div className="card"><h4>Users</h4><p>{stats.users}</p></div>
         <div className="card"><h4>Complaints</h4><p>{stats.complaints}</p></div>
@@ -394,7 +377,6 @@ export default function AdminHome() {
         <div className="card"><h4>Resolved</h4><p>{stats.resolved}</p></div>
       </div>
 
-      {/* CHARTS */}
       <div className="charts-grid">
 
         <div className="chart-box">

@@ -65,25 +65,48 @@ export default function Complaints() {
 
     let imageUrl = null;
 
-    if (image) {
-      const fileName = `${Date.now()}_${image.name}`;
+    // if (image) {
+    //   const fileName = `${Date.now()}_${image.name}`;
 
-      const { error: uploadError } = await supabase.storage
-        .from("complaint-images")
-        .upload(fileName, image);
+    //   const { error: uploadError } = await supabase.storage
+    //     .from("complaint-images")
+    //     .upload(fileName, image);
 
-      if (uploadError) {
-        alert("Image upload failed");
-        return;
-      }
+    //   if (uploadError) {
+    //     alert("Image upload failed");
+    //     return;
+    //   }
 
-      const { data } = supabase.storage
-        .from("complaint-images")
-        .getPublicUrl(fileName);
+    //   const { data } = supabase.storage
+    //     .from("complaint-images")
+    //     .getPublicUrl(fileName);
 
-      imageUrl = data.publicUrl;
-    }
+    //   imageUrl = data.publicUrl;
+    // }
+if (image) {
+  const fileName = `${userData.user.id}_${Date.now()}_${image.name}`;
 
+  const { error: uploadError } = await supabase.storage
+    .from("complaint-images")
+    .upload(fileName, image, {
+      cacheControl: "3600",
+      upsert: true
+    });
+
+  if (uploadError) {
+    console.log("Upload error:", uploadError);
+    alert("Image upload failed");
+    return;
+  }
+
+  const { data: publicData } = supabase.storage
+    .from("complaint-images")
+    .getPublicUrl(fileName);
+
+  imageUrl = publicData.publicUrl;
+
+  console.log("IMAGE URL:", imageUrl);
+}
     const { error } = await supabase.from("complaints").insert([
       {
         title: form.title,
