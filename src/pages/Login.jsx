@@ -38,26 +38,20 @@ export default function Login() {
         <div className="login-card">
           <h2>Welcome Back</h2>
 
-          <input
-            type="email"
-            placeholder="Email"
+          <input type="email" placeholder="Email"
             onChange={(e) =>
               setForm({ ...form, email: e.target.value })
             }
           />
 
-          <input
-            type="password"
-            placeholder="Password"
+          <input type="password" placeholder="Password"
             onChange={(e) =>
               setForm({ ...form, password: e.target.value })
-            }
-          />
+            } />
 
           <button onClick={handleLogin}>Login</button>
 
-          <p>
-            Don’t have an account?{" "}
+          <p> Don’t have an account?{" "}
             <span onClick={() => navigate("/register")}>
               Register
             </span>

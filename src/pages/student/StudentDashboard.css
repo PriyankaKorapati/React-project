@@ -6,15 +6,14 @@
 /* ===== MAIN AREA ===== */
 .dashboard-main {
   flex: 1;
-  margin-left: 230px;   /* sidebar width */
+  margin-left: 230px;   
 }
 
 /* ===== CONTENT AREA ===== */
 .dashboard-content {
-  margin-top: 65px;     /* navbar height */
+  margin-top: 65px;    
   min-height: calc(100vh - 65px);
 
-  /* 🔥 SINGLE BACKGROUND (NO GAPS) */
   /* background: radial-gradient(circle at top, #0f172a, #020617 70%); */
     background: linear-gradient(180deg,  rgba(34,211,238,0.5),#0f172a);
 

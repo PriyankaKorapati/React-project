@@ -128,16 +128,11 @@ export default function Profile() {
       <div className="profile-container">
 
         <div className="profile-card">
-          <img
-            src={preview || profile.avatar_url || "https://via.placeholder.com/120?text=User"}
-            alt ="profile" className="profile-img"
-          />
+          <img src={preview || profile.avatar_url || "https://via.placeholder.com/120?text=User"}
+            alt ="profile" className="profile-img" />
 
           {isEditing && (
-            <input
-              type="file"
-              onChange={(e) => handleImage(e.target.files[0])}
-            />
+            <input type="file" onChange={(e) => handleImage(e.target.files[0])} />
           )}
 
           <h3>{profile.name}</h3>
@@ -151,9 +146,7 @@ export default function Profile() {
           <input value={form.email || ""} disabled />
           <input value={form.phone || ""} disabled />
 
-          <input
-            value={form.department || ""}
-            disabled={!isEditing}
+          <input value={form.department || ""} disabled={!isEditing}
             onChange={(e) =>
               setForm({ ...form, department: e.target.value })
             }
@@ -162,18 +155,13 @@ export default function Profile() {
 
           <h3>Education</h3>
 
-          <input
-            value={form.college || ""}
-            disabled={!isEditing}
+          <input value={form.college || ""} disabled={!isEditing}
             onChange={(e) =>
               setForm({ ...form, college: e.target.value })
             }
-            placeholder="College"
-          />
+            placeholder="College"/>
 
-          <input
-            value={form.year || ""}
-            disabled={!isEditing}
+          <input value={form.year || ""} disabled={!isEditing}
             onChange={(e) =>
               setForm({ ...form, year: e.target.value })
             }
@@ -181,17 +169,11 @@ export default function Profile() {
 
           {!isEditing ? (
             <div className="btn-row">
-              <button
-                className="edit-btn"
-                onClick={() => setIsEditing(true)}
-              >
+              <button className="edit-btn" onClick={() => setIsEditing(true)}>
                 Edit
               </button>
 
-              <button
-                className="delete-btn"
-                onClick={handleDelete}
-              >
+              <button className="delete-btn" onClick={handleDelete}>
                 Delete
               </button>
             </div>
@@ -201,10 +183,7 @@ export default function Profile() {
                 Save
               </button>
 
-              <button
-                className="cancel-btn"
-                onClick={() => setIsEditing(false)}
-              >
+              <button className="cancel-btn" onClick={() => setIsEditing(false)}>
                 Cancel
               </button>
             </div>

@@ -14,26 +14,20 @@ export default function Sidebar({ setActive }) {
   return (
     <div className="s-sidebar">
 
-      <button
-        className={activeTab === "home" ? "active" : ""}
-        onClick={() => handleClick("home")}
-      >
+      <button className={activeTab === "home" ? "active" : ""}
+        onClick={() => handleClick("home")} >
         <FaHome className="icon" />
         Dashboard
       </button>
 
-      <button
-        className={activeTab === "profile" ? "active" : ""}
-        onClick={() => handleClick("profile")}
-      >
+      <button className={activeTab === "profile" ? "active" : ""}
+        onClick={() => handleClick("profile")} >
         <FaUser className="icon" />
         Profile
       </button>
 
-      <button
-        className={activeTab === "complaints" ? "active" : ""}
-        onClick={() => handleClick("complaints")}
-      >
+      <button className={activeTab === "complaints" ? "active" : ""}
+        onClick={() => handleClick("complaints")} >
         <FaClipboardList className="icon" />
         Complaints
       </button>
