@@ -4,6 +4,7 @@ import TopNavbar from "../../components/student/TopNavbar";
 import DashboardHome from "./DashboardHome";
 import Complaints from "./Complaints";
 import Profile from "./Profile";
+import BusTracking from "./BusTracking";
 import "./StudentDashboard.css";
 
 export default function StudentDashboard() {
@@ -17,6 +18,8 @@ export default function StudentDashboard() {
         return <Profile />;
       case "complaints":
         return <Complaints />;
+      case "bus-tracking":
+        return <BusTracking />;
       default:
         return <DashboardHome />;
     }

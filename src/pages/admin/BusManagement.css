@@ -1,0 +1,142 @@
+.admin-bus-page {
+  padding: 20px;
+  color: #e2e8f0;
+}
+
+/* TITLE */
+.admin-bus-page h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 26px;
+  color: #c4b5fd;
+}
+
+/* CARD GRID */
+.admin-bus-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* CARD */
+.admin-bus-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  /* border: 1px solid rgba(139, 92, 246, 0.6); */
+  border-left: 4px solid #8b5cf6;
+
+  border-radius: 12px;
+  padding: 20px;
+  transition: 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* HOVER EFFECT */
+.admin-bus-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* STATUS COLORS */
+.admin-bus-card.atcampus {
+  border-left: 6px solid #22c55e;
+}
+
+.admin-bus-card.ontheway {
+  border-left: 6px solid #f59e0b;
+}
+
+.admin-bus-card.delayed {
+  border-left: 6px solid #ef4444;
+}
+
+/* BUS INFO */
+.admin-bus-card h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.admin-bus-card p {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* BUTTON ROW */
+.btn-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* COMMON BUTTON */
+.status-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+/* CAMPUS BUTTON */
+.status-btn.campus {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+}
+
+.status-btn.campus:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(34,197,94,0.4);
+}
+
+/* WAY BUTTON */
+.status-btn.way {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: white;
+}
+
+.status-btn.way:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(14,165,233,0.4);
+}
+
+/* DELAY BUTTON */
+.status-btn.delay {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.status-btn.delay:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(239,68,68,0.4);
+}
+
+/* ICON SIZE */
+.status-btn svg {
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .admin-bus-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .btn-row {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .status-btn {
+    flex: 1;
+    justify-content: center;
+  }
+}
+

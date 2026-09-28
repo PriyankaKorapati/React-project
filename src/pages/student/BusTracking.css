@@ -1,0 +1,81 @@
+.bus-page {
+  padding: 20px;
+  color: #e2e8f0;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.bus-list {
+  display: grid;
+  gap: 15px;
+}
+
+/* CARD */
+.bus-card {
+  padding: 16px;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95),
+    rgba(2, 6, 23, 1)
+  );
+  border-left: 6px solid #64748b;
+  transition: 0.3s;
+}
+
+.bus-card:hover {
+  transform: translateY(-4px);
+}
+
+/* STATUS COLORS */
+.bus-card.atcampus {
+  border-left: 6px solid #22c55e;
+}
+
+.bus-card.ontheway {
+  border-left: 6px solid #f59e0b;
+}
+
+.bus-card.delayed {
+  border-left: 6px solid #ef4444;
+}
+
+/* HEADER */
+.bus-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* STATUS TAG COLORS */
+.status.atcampus {
+  background: rgba(34,197,94,0.2);
+  color: #22c55e;
+}
+
+.status.ontheway {
+  background: rgba(245,158,11,0.2);
+  color: #f59e0b;
+}
+
+.status.delayed {
+  background: rgba(239,68,68,0.2);
+  color: #ef4444;
+}
+
+/* FOOTER */
+.bus-bottom {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #94a3b8;
+}

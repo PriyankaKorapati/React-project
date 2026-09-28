@@ -1,6 +1,6 @@
-
 import { useState } from "react";
-import { FaClipboardList, FaUsers, FaChartBar } from "react-icons/fa";
+import { FaClipboardList, FaUsers, FaChartBar, FaBus  } from "react-icons/fa";
+
 import "./AdminSidebar.css";
 
 
@@ -33,6 +33,12 @@ export default function AdminSidebar({ setActivePage }) {
         onClick={() => handleClick("users")}
       >
         <FaUsers /> Users
+      </button>
+      <button
+        className={active === "bus" ? "active" : ""}
+        onClick={() => handleClick("bus")}
+      >
+        <FaUsers /> Bus Management
       </button>
       
     

@@ -139,7 +139,6 @@ export default function AdminUsers() {
     <div className="users-container">
       <h2 className="page-title">All Users</h2>
 
-      {/* 🔍 SEARCH */}
       <input
         className="search-box"
         placeholder="Search user..."
