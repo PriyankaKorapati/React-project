@@ -3,9 +3,11 @@
   color: #e2e8f0;
 }
 
-.page-title {
+.s-page-title {
   text-align: center;
   margin-bottom: 20px;
+  color: #38bdf8;
+
 }
 
 .bus-list {

@@ -27,7 +27,7 @@ export default function BusTracking(){
 
     return(
         <div className="bus-page">
-            <h2 className="page-title">Campus Bus Tracking</h2>
+            <h2 className="s-page-title">Campus Bus Tracking</h2>
 
             {buses.length===0 ?(
                 <p>No buses available</p>
