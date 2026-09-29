@@ -1,28 +1,34 @@
+/* PAGE BACKGROUND */
 .login-page {
   display: flex;
   height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
 }
 
 /* LEFT SIDE */
 .login-left {
   flex: 1;
-  background: #0f172a;
   color: white;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 60px;
+  padding: 80px;
 }
 
 .login-left h1 {
-  font-size: 32px;
-  margin-bottom: 15px;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #38bdf8, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .login-left p {
+  font-size: 16px;
   color: #cbd5e1;
-  line-height: 1.5;
+  max-width: 400px;
+  line-height: 1.6;
 }
 
 /* RIGHT SIDE */
@@ -33,34 +39,91 @@
   align-items: center;
 }
 
-/* CARD */
+/* GLASS CARD */
 .login-card {
-  width: 320px;
+  width: 350px;
+  padding: 30px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
   display: flex;
   flex-direction: column;
   gap: 15px;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
+/* TITLE */
 .login-card h2 {
   text-align: center;
+  color: #e2e8f0;
 }
 
+/* INPUTS */
 .login-card input {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  outline: none;
+  transition: 0.3s;
 }
 
+.login-card input::placeholder {
+  color: #94a3b8;
+}
+
+.login-card input:focus {
+  border: 1px solid #6366f1;
+  box-shadow: 0 0 8px rgba(99,102,241,0.5);
+}
+
+/* BUTTON */
 .login-card button {
-  background: #3b82f6;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
   color: white;
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.login-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99,102,241,0.4);
+}
+
+/* REGISTER TEXT */
+.login-card p {
+  text-align: center;
+  color: #cbd5e1;
 }
 
 .login-card span {
-  color: #3b82f6;
+  color: #38bdf8;
   cursor: pointer;
+  font-weight: 500;
+}
+
+.login-card span:hover {
+  text-decoration: underline;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .login-page {
+    flex-direction: column;
+  }
+
+  .login-left {
+    text-align: center;
+    padding: 40px;
+  }
 }

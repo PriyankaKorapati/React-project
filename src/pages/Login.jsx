@@ -26,36 +26,46 @@ export default function Login() {
   return (
     <div className="login-page">
 
+      {/* LEFT SIDE */}
       <div className="login-left">
         <h1>Campus Command Center</h1>
         <p>
           Manage complaints, track issues, and improve campus life
-          with a centralized system.
+          with a centralized smart system 
         </p>
       </div>
 
+      {/* RIGHT SIDE */}
       <div className="login-right">
         <div className="login-card">
+
           <h2>Welcome Back</h2>
 
-          <input type="email" placeholder="Email"
+          <input
+            type="email"
+            placeholder="Enter your email"
             onChange={(e) =>
               setForm({ ...form, email: e.target.value })
             }
           />
 
-          <input type="password" placeholder="Password"
+          <input
+            type="password"
+            placeholder="Enter your password"
             onChange={(e) =>
               setForm({ ...form, password: e.target.value })
-            } />
+            }
+          />
 
           <button onClick={handleLogin}>Login</button>
 
-          <p> Don’t have an account?{" "}
+          <p>
+            Don’t have an account?{" "}
             <span onClick={() => navigate("/register")}>
               Register
             </span>
           </p>
+
         </div>
       </div>
 
