@@ -39,19 +39,6 @@
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-/* STATUS COLORS */
-.admin-bus-card.atcampus {
-  border-left: 6px solid #22c55e;
-}
-
-.admin-bus-card.ontheway {
-  border-left: 6px solid #f59e0b;
-}
-
-.admin-bus-card.delayed {
-  border-left: 6px solid #ef4444;
-}
-
 /* BUS INFO */
 .admin-bus-card h4 {
   font-size: 18px;

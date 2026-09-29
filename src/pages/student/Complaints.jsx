@@ -139,7 +139,6 @@ if (image) {
         </button>
       </div>
 
-      {/* LIST */}
       {complaints.length === 0 ? (
         <div className="empty-state">
           <p>No complaints yet 🚀</p>
@@ -201,8 +200,7 @@ if (image) {
               value={form.description}
               onChange={(e) =>
                 setForm({ ...form, description: e.target.value })
-              }
-            />
+              } />
 
             <select
               value={form.category}
@@ -220,8 +218,7 @@ if (image) {
               onChange={(e) => {
                 const file = e.target.files?.[0];
                 handleImageChange(file);
-              }}
-            />
+              }} />
             {preview && (
               <img
                 src={preview}

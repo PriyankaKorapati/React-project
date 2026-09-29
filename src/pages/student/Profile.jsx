@@ -150,8 +150,7 @@ export default function Profile() {
             onChange={(e) =>
               setForm({ ...form, department: e.target.value })
             }
-            placeholder="Department"
-          />
+            placeholder="Department" />
 
           <h3>Education</h3>
 

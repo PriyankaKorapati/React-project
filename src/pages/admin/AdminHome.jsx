@@ -212,7 +212,6 @@ export default function AdminHome() {
             </BarChart>
           </ResponsiveContainer>
         </div>
-
       </div>
     </div>
   );

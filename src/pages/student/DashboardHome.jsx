@@ -86,7 +86,6 @@ export default function DashboardHome() {
             <span className="s-sub">Waiting</span>
           </div>
         </div>
-
       </div>
     </div>
   );

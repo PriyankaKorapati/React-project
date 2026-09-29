@@ -44,20 +44,6 @@ export default function BusManagement() {
           <h4>{bus.bus_no}</h4>
           <p>Status: {bus.status}</p>
 
-          {/* <div className="btn-row">
-            <button onClick={() => updateStatus(bus.id, "At Campus")}>
-              🟢 Campus
-            </button>
-
-            <button onClick={() => updateStatus(bus.id, "On the Way")}>
-              🟡 Way
-            </button>
-
-            <button onClick={() => updateStatus(bus.id, "Delayed")}>
-              🔴 Delay
-            </button>
-          </div> */}
-
           <div className="btn-row">
             <button
               className="status-btn campus"

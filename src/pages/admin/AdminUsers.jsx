@@ -143,8 +143,7 @@ export default function AdminUsers() {
         className="search-box"
         placeholder="Search user..."
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+        onChange={(e) => setSearch(e.target.value)} />
 
       {filteredUsers.length === 0 && <p>No users found</p>}
 
@@ -175,8 +174,6 @@ export default function AdminUsers() {
               }>
                 Change Role
               </button>
-
-              {/* DELETE */}
               <button className="delete-btn" onClick={() => deleteUser(user.id)}>
                 Delete
               </button>

@@ -131,4 +131,4 @@ export default function AdminComplaints() {
       </div>
     </div>
   );
-}
+}  
