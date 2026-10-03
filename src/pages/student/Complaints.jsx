@@ -64,49 +64,30 @@ export default function Complaints() {
     if (!userData?.user) return;
 
     let imageUrl = null;
+    if (image) {
+      const fileName = `${userData.user.id}_${Date.now()}_${image.name}`;
 
-    // if (image) {
-    //   const fileName = `${Date.now()}_${image.name}`;
+      const { error: uploadError } = await supabase.storage
+        .from("complaint-images")
+        .upload(fileName, image, {
+          cacheControl: "3600",
+          upsert: true
+        });
 
-    //   const { error: uploadError } = await supabase.storage
-    //     .from("complaint-images")
-    //     .upload(fileName, image);
+      if (uploadError) {
+        console.log("Upload error:", uploadError);
+        alert("Image upload failed");
+        return;
+      }
 
-    //   if (uploadError) {
-    //     alert("Image upload failed");
-    //     return;
-    //   }
+    const { data: publicData } = supabase.storage
+      .from("complaint-images")
+      .getPublicUrl(fileName);
 
-    //   const { data } = supabase.storage
-    //     .from("complaint-images")
-    //     .getPublicUrl(fileName);
+    imageUrl = publicData.publicUrl;
 
-    //   imageUrl = data.publicUrl;
-    // }
-if (image) {
-  const fileName = `${userData.user.id}_${Date.now()}_${image.name}`;
-
-  const { error: uploadError } = await supabase.storage
-    .from("complaint-images")
-    .upload(fileName, image, {
-      cacheControl: "3600",
-      upsert: true
-    });
-
-  if (uploadError) {
-    console.log("Upload error:", uploadError);
-    alert("Image upload failed");
-    return;
+    console.log("IMAGE URL:", imageUrl);
   }
-
-  const { data: publicData } = supabase.storage
-    .from("complaint-images")
-    .getPublicUrl(fileName);
-
-  imageUrl = publicData.publicUrl;
-
-  console.log("IMAGE URL:", imageUrl);
-}
     const { error } = await supabase.from("complaints").insert([
       {
         title: form.title,
@@ -141,13 +122,12 @@ if (image) {
 
       {complaints.length === 0 ? (
         <div className="empty-state">
-          <p>No complaints yet 🚀</p>
+          <p>No complaints yet</p>
           <span>Click "Raise Complaint" to create your first issue</span>
         </div>
       ) : (
         <div className="complaints-list">
           {complaints.map((item) => (
-            // <div className="s-complaint-card" key={item.id}>
             <div className={`s-complaint-card ${item.status.toLowerCase()}`} key={item.id}>
 
               <div className="card-top">
